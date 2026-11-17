@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Identidad "señalética de emergencia": tinta azul + ámbar de señal (oscuro),
+   papel frío + azul de señal (claro). */
+:root {
+  --background: #f3f5f9;
+  --foreground: #0d1630;
+  --muted: #e6eaf2;
+  --muted-foreground: #4a5678;
+  --border: #d3d9e6;
+  --accent: #1f3fd1;
+  --accent-foreground: #ffffff;
+}
+
+:root.dark {
+  --background: #0a1226;
+  --foreground: #e8ecf7;
+  --muted: #121c38;
+  --muted-foreground: #98a3c4;
+  --border: #223058;
+  --accent: #ffb000;
+  --accent-foreground: #0a1226;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-sans-brand);
+  --font-mono: var(--font-mono-brand);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans-brand), system-ui, sans-serif;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
